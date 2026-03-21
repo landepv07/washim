@@ -12,7 +12,7 @@ font-family:sans-serif;
 text-align:center;
 }
 
-.card{
+#resultBox{
 background:#fff3d6;
 width:90%;
 margin:auto;
@@ -53,29 +53,33 @@ border-radius:10px;
 
 <body>
 
-<div class="card" id="card">
 <div id="resultBox">
+
 <h2>शिक्षण विभाग</h2>
 <h3>जिल्हा परिषद वाशिम</h3>
 
 <div class="circle">
 <img id="preview">
 </div>
-<input type="file" onchange="loadImage(event)">
-
-<br>
-<div id="formArea">
-<input placeholder="नाव" id="nameInput" oninput="showData()">
-<input placeholder="पदनाम" id="postInput" oninput="showData()">
-<input placeholder="शाळेचे नाव" id="schoolInput" oninput="showData()">
 
 <p id="showName">नाव :</p>
 <p id="showPost">पदनाम :</p>
 <p id="showSchool">शाळेचे नाव :</p>
-</div>
-<button onclick="download()">WhatsApp Status डाउनलोड करा</button>
 
 </div>
+
+
+<br>
+
+<input type="file" onchange="loadImage(event)">
+
+<input placeholder="नाव" id="nameInput" oninput="showData()">
+<input placeholder="पदनाम" id="postInput" oninput="showData()">
+<input placeholder="शाळेचे नाव" id="schoolInput" oninput="showData()">
+
+<br>
+
+<button onclick="download()">WhatsApp Status डाउनलोड</button>
 
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
@@ -108,11 +112,10 @@ document.getElementById("showSchool").innerText =
 "शाळेचे नाव : " + school;
 
 }
+
 function download(){
 
-document.getElementById("formArea").style.display="none";
-
-html2canvas(document.querySelector("#card"))
+html2canvas(document.querySelector("#resultBox"))
 .then(canvas => {
 
 let link=document.createElement("a");
@@ -123,11 +126,10 @@ link.href=canvas.toDataURL();
 
 link.click();
 
-document.getElementById("formArea").style.display="block";
-
 });
 
 }
+
 </script>
 
 </body>
