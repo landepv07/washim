@@ -2,23 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>जिल्हा परिषद वाशिम</title>
+<title>ZP Washim</title>
 
 <style>
 
 body{
-background:linear-gradient(orange,#ffcc66);
+background:orange;
 font-family:sans-serif;
 text-align:center;
-margin:0;
 }
 
 .card{
 background:#fff3d6;
-width:95%;
-max-width:500px;
+width:90%;
 margin:auto;
-margin-top:10px;
 padding:15px;
 border-radius:20px;
 }
@@ -30,7 +27,6 @@ border-radius:50%;
 border:5px solid orange;
 margin:auto;
 overflow:hidden;
-background:white;
 }
 
 .circle img{
@@ -38,12 +34,9 @@ width:100%;
 }
 
 input{
-width:85%;
+width:80%;
 padding:10px;
 margin:5px;
-border:none;
-border-bottom:2px dashed orange;
-font-size:16px;
 }
 
 button{
@@ -51,8 +44,7 @@ background:orange;
 color:white;
 padding:10px;
 border:none;
-border-radius:15px;
-margin:5px;
+border-radius:10px;
 }
 
 </style>
@@ -61,8 +53,8 @@ margin:5px;
 
 <body>
 
-<div class="card">
-<img src="20250826967859708.jpg" width="100">
+<div class="card" id="card">
+
 <h2>शिक्षण विभाग</h2>
 <h3>जिल्हा परिषद वाशिम</h3>
 
@@ -71,12 +63,22 @@ margin:5px;
 </div>
 
 <input type="file" onchange="loadImage(event)">
-<h3>होय, मी जि. प. शाळेत शिकलोय !</h3>
-<button>माझी शाळा माझे वैभव</button>
+
+<br>
+
+<input placeholder="नाव" id="nameInput" oninput="showData()">
+<input placeholder="पदनाम" id="postInput" oninput="showData()">
+<input placeholder="शाळेचे नाव" id="schoolInput" oninput="showData()">
+
+<p id="showName">नाव :</p>
+<p id="showPost">पदनाम :</p>
+<p id="showSchool">शाळेचे नाव :</p>
 
 <button onclick="download()">WhatsApp Status डाउनलोड करा</button>
 
 </div>
+
+
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 <script>
@@ -85,44 +87,39 @@ function loadImage(e){
 document.getElementById("preview").src =
 URL.createObjectURL(e.target.files[0]);
 }
+
 function showData(){
 
 let name =
-document.getElementsByTagName("input")[1].value;
+document.getElementById("nameInput").value;
+
+let post =
+document.getElementById("postInput").value;
+
+let school =
+document.getElementById("schoolInput").value;
 
 document.getElementById("showName").innerText =
 "नाव : " + name;
 
-}
-
-function showData2(){
-
-let post =
-document.getElementsByTagName("input")[2].value;
-
 document.getElementById("showPost").innerText =
 "पदनाम : " + post;
-
-}
-
-function showData3(){
-
-let school =
-document.getElementsByTagName("input")[3].value;
 
 document.getElementById("showSchool").innerText =
 "शाळेचे नाव : " + school;
 
 }
+
 function download(){
 
-html2canvas(document.querySelector(".card")).then(canvas => {
+html2canvas(document.querySelector("#card"))
+.then(canvas => {
 
 let link = document.createElement("a");
 
 link.download = "status.png";
 
-link.href = canvas.toDataURL("image/png");
+link.href = canvas.toDataURL();
 
 link.click();
 
@@ -131,5 +128,6 @@ link.click();
 }
 
 </script>
+
 </body>
 </html>
