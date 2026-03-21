@@ -109,24 +109,26 @@ document.getElementById("showSchool").innerText =
 "शाळेचे नाव : " + school;
 
 }
-
 function download(){
+
+document.getElementById("formArea").style.display="none";
 
 html2canvas(document.querySelector("#card"))
 .then(canvas => {
 
-let link = document.createElement("a");
+let link=document.createElement("a");
 
-link.download = "status.png";
+link.download="status.png";
 
-link.href = canvas.toDataURL();
+link.href=canvas.toDataURL();
 
 link.click();
+
+document.getElementById("formArea").style.display="block";
 
 });
 
 }
-
 </script>
 
 </body>
