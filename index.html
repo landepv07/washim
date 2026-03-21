@@ -91,22 +91,23 @@ function loadImage(e){
 document.getElementById("preview").src =
 URL.createObjectURL(e.target.files[0]);
 }
-
 function showData(){
 document.getElementById("showName").innerText =
+"नाव : " +
 document.getElementsByTagName("input")[1].value;
 }
 
 function showData2(){
 document.getElementById("showPost").innerText =
+"पदनाम : " +
 document.getElementsByTagName("input")[2].value;
 }
 
 function showData3(){
 document.getElementById("showSchool").innerText =
+"शाळा : " +
 document.getElementsByTagName("input")[3].value;
 }
-
 function download(){
 
 html2canvas(document.querySelector(".card")).then(canvas => {
