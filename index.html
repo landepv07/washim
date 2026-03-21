@@ -71,9 +71,7 @@ margin:5px;
 </div>
 
 <input type="file" onchange="loadImage(event)">
-
 <h3>होय, मी जि. प. शाळेत शिकलोय !</h3>
-
 <input placeholder="नाव" oninput="showData()">
 <input placeholder="पदनाम" oninput="showData2()">
 
@@ -100,17 +98,14 @@ function showData(){
 document.getElementById("showName").innerText =
 document.getElementsByTagName("input")[1].value;
 }
-
 function showData2(){
 document.getElementById("showPost").innerText =
 document.getElementsByTagName("input")[2].value;
 }
-
 function showData3(){
 document.getElementById("showSchool").innerText =
 document.getElementsByTagName("input")[3].value;
 }
 </script>
-
 </body>
 </html>
