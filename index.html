@@ -94,22 +94,30 @@ margin:5px;
 function loadImage(e){
 document.getElementById("preview").src =
 URL.createObjectURL(e.target.files[0]);
-}function showData(){
-document.getElementById("showName").innerText =
-"नाव : " +
+}
+function showData(){
+
+var name =
 document.getElementsByTagName("input")[1].value;
-}
 
+document.getElementById("showName").innerText =
+"नाव : " + name;
+}
 function showData2(){
-document.getElementById("showPost").innerText =
-"पदनाम : " +
-document.getElementsByTagName("input")[2].value;
-}
 
-function showData3(){
-document.getElementById("showSchool").innerText =
-"शाळेचे नाव : " +
+var post =
+document.getElementsByTagName("input")[2].value;
+
+document.getElementById("showPost").innerText =
+"पदनाम : " + post;
+}function showData3(){
+
+var school =
 document.getElementsByTagName("input")[3].value;
+
+document.getElementById("showSchool").innerText =
+"शाळेचे नाव : " + school;
+
 }
 function download(){
 
