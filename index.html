@@ -83,6 +83,7 @@ margin:5px;
 <button onclick="download()">WhatsApp Status डाउनलोड करा</button>
 
 </div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 <script>
 
@@ -90,33 +91,38 @@ function loadImage(e){
 document.getElementById("preview").src =
 URL.createObjectURL(e.target.files[0]);
 }
+
+function showData(){
+document.getElementById("showName").innerText =
+document.getElementsByTagName("input")[1].value;
+}
+
+function showData2(){
+document.getElementById("showPost").innerText =
+document.getElementsByTagName("input")[2].value;
+}
+
+function showData3(){
+document.getElementById("showSchool").innerText =
+document.getElementsByTagName("input")[3].value;
+}
+
 function download(){
 
-html2canvas(document.body).then(function(canvas) {
+html2canvas(document.querySelector(".card")).then(canvas => {
 
-var link = document.createElement("a");
+let link = document.createElement("a");
 
 link.download = "status.png";
 
-link.href = canvas.toDataURL();
+link.href = canvas.toDataURL("image/png");
 
 link.click();
 
 });
 
 }
-function showData(){
-document.getElementById("showName").innerText =
-document.getElementsByTagName("input")[1].value;
-}
-function showData2(){
-document.getElementById("showPost").innerText =
-document.getElementsByTagName("input")[2].value;
-}
-function showData3(){
-document.getElementById("showSchool").innerText =
-document.getElementsByTagName("input")[3].value;
-}
-</script >
+
+</script>
 </body>
 </html>
