@@ -94,8 +94,7 @@ margin:5px;
 function loadImage(e){
 document.getElementById("preview").src =
 URL.createObjectURL(e.target.files[0]);
-}
-function showData(){
+}function showData(){
 document.getElementById("showName").innerText =
 "नाव : " +
 document.getElementsByTagName("input")[1].value;
@@ -109,7 +108,7 @@ document.getElementsByTagName("input")[2].value;
 
 function showData3(){
 document.getElementById("showSchool").innerText =
-"शाळा : " +
+"शाळेचे नाव : " +
 document.getElementsByTagName("input")[3].value;
 }
 function download(){
